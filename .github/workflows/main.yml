@@ -39,4 +39,4 @@ jobs:
       - name: Change rights
         run: chmod +x mvnw && npm run ci:backend:test
       - name: Run local back tests
-        run: npm run backend:unit:test:win
+        run: npm run backend:unit:test
