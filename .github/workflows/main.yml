@@ -46,7 +46,7 @@ jobs:
         run: npm run ci:e2e:prepare:docker
       #- name: Tests
         #run: npm run ci:e2e:run
-      - name: Clean
-        run: npm run ci:e2e:teardown
-      - name: Serv
-        run: npm run e2e
+      #- name: Clean
+        #run: npm run ci:e2e:teardown
+      #- name: Serv
+        #run: npm run e2e
