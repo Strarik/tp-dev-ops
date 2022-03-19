@@ -31,7 +31,8 @@ jobs:
           java-version: '11.x'
       # Runs a single command using the runners shell
       - name: Install node.js packages
-        run: npm install    
+        run: npm install
+             sleep 10
   
   job2:
     name: Tests Front
