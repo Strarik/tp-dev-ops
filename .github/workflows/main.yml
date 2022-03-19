@@ -15,8 +15,8 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
+  job1:
+    name: CI
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -50,6 +50,20 @@ jobs:
         #run: npm run ci:e2e:teardown
       #- name: Serv
         #run: npm run e2e
+  job2:
+    name: Deploy
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14.16.1
+      - uses: actions/setup-java@v1
+        with:
+          java-version: '11.x'
       - name: Heroku
         env: 
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
@@ -71,4 +85,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=Strarik_tp-dev-ops
-      
+
